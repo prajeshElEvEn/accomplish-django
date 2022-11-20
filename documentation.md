@@ -71,3 +71,60 @@ python3 manage.py migrate
 ```bash
 python3 manage.py runserver 127.0.0.1:8000
 ```
+
+- Click on the `url` to open your page [http://localhost:8000/](http://localhost:8000/)
+
+- Create a new folder `templates` for `html` files in `todo` folder
+
+```bash
+cd todo
+mkdir templates
+```
+
+- Create a `base.html` file with the code
+
+```bash
+cd templates
+touch base.html
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accomplish</title>
+  </head>
+
+  <body>
+    <div class="container">{% block content %} {% endblock %}</div>
+  </body>
+</html>
+```
+
+- Create a `todo.html` file with the code
+
+```bash
+touch todo.html
+```
+
+```html
+{% extends 'base.html' %} {% block content %}
+<div class="content">
+  <div class="title">Accomplish</div>
+  <form>
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit" class="btn">Submit</button>
+  </form>
+  <div class="list">
+    {% for todo in todos %}
+    <p>{{todo.title}}</p>
+    {% empty %}
+    <p>No todos</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+```
