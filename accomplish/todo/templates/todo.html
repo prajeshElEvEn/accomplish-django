@@ -1,9 +1,16 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="content">
-    <div class="title">
-        Accomplish
-    </div>
+  <div class="title">Accomplish</div>
+  <form>
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit" class="btn">Submit</button>
+  </form>
+  <div class="list">
+    {% for todo in todos %}
+    <p>{{todo.title}}</p>
+    {% empty %}
+    <p>No todos</p>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
