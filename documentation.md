@@ -156,3 +156,52 @@ def todos(request):
 
     return render(request, 'todo.html', {'todos': todos, 'form': form})
 ```
+
+- Create a file `urls.py` in `todo/` folder and add the following code
+
+```bash
+cd ..
+touch urls.py
+```
+
+```python
+from django.urls import path
+
+from todo import views
+
+urlpatterns = [
+    path('', views.todos, name='todos')
+]
+```
+
+- Now edit the `urls.py` file in `accomplish/` by replacing the code by the following code
+
+```python
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('todos/', include('todo.urls'))
+]
+```
+
+- Create a file `forms.py` in `todo/` folder and add the following code
+
+```bash
+touch forms.py
+```
+
+```python
+from django.forms import ModelForm
+
+from .models import Todo
+
+
+class TodoForm(ModelForm):
+    class Meta:
+        model = Todo
+        fields = ['title', 'description', 'is_done']
+```
+
+- Now go to the `url`: [http://localhost:8000/todos/](http://localhost:8000/todos/) to see the result.
