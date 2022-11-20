@@ -1,6 +1,6 @@
 # Accomplish
 
-Accomplish - `todo` app built with django. Read this [documentation]() to build one for your own.
+Accomplish - `todo` app built with django. Read this [documentation](https://github.com/prajeshElEvEn/accomplish-django/blob/master/documentation.md) to build one for your own.
 
 ## Installation
 

@@ -20,3 +20,23 @@ source venv/bin/activate
 pip install django
 django-admin startproject accomplish
 ```
+
+- Create a new app `todo`.
+
+```python
+python3 accomplish/manage.py startapp todo
+```
+
+- Add `todo` to `INSTALLED_APPS` in `accomplish/settings.py`.
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'todo',
+]
+```
