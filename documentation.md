@@ -74,7 +74,7 @@ python3 manage.py runserver 127.0.0.1:8000
 
 - Click on the `url` to open your page [http://localhost:8000/](http://localhost:8000/)
 
-- Create a new folder `templates` for `html` files in `todo` folder
+- Create a new folder `templates` for `html` files in `todo/` folder
 
 ```bash
 cd todo
@@ -127,4 +127,32 @@ touch todo.html
   </div>
 </div>
 {% endblock %}
+```
+
+- In `view.py` file in `todo/` folder write the following code
+
+<!-- ```bash
+cd ..
+``` -->
+
+```python
+from django.shortcuts import render, redirect
+
+from .forms import TodoForm
+from .models import Todo
+
+
+def todos(request):
+    if request.method == 'POST':
+        form = TodoForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('todos')
+    else:
+        form = TodoForm()
+    todos = Todo.objects.all()
+
+    return render(request, 'todo.html', {'todos': todos, 'form': form})
 ```
