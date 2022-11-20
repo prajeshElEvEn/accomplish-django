@@ -40,3 +40,9 @@ INSTALLED_APPS = [
     'todo',
 ]
 ```
+
+- Create a model in `todo/models.py` by adding the following code.
+
+```python
+
+```
