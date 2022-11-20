@@ -24,7 +24,8 @@ django-admin startproject accomplish
 - Create a new app `todo`.
 
 ```python
-python3 accomplish/manage.py startapp todo
+cd accomplish
+python3 manage.py startapp todo
 ```
 
 - Add `todo` to `INSTALLED_APPS` in `accomplish/settings.py`.
