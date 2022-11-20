@@ -1,4 +1,4 @@
-# Accomplish Django Documentation
+# Accomplish | Django Documentation
 
 - Create a new folder `todo` and enter into it.
 
